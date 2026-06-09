@@ -1,6 +1,6 @@
 📋 Descrição do Projeto:
 
-O projeto consiste em um aplicativo simulador de delivery e cozinha, totalmente inspirado no clássico minijogo de bolos do Purble Place. Nele, o usuário assume o papel de um confeiteiro que precisa gerenciar uma doceria: receber os pedidos dos clientes via "delivery", ir para a cozinha e montar os doces combinando as massas, recheios, coberturas e decorações exatas que foram solicitadas. Tudo isso contra o relógio, unindo a nostalgia dos anos 2000 com a dinâmica moderna dos apps de entrega.
+O projeto consiste em uma plataforma simuladora de delivery e cozinha, totalmente inspirada no clássico minijogo de bolos do Purple Place. Nele, o usuário assume o papel de um confeiteiro que precisa gerenciar uma doceria: receber os pedidos dos clientes via "delivery", ir para a cozinha e montar os doces combinando as massas, recheios, coberturas e decorações exatas que foram solicitadas. Tudo isso contra o relógio, unindo a nostalgia dos anos 2000 com a dinâmica moderna dos apps de entrega.
 
 🎯 Relevância do Projeto:
 

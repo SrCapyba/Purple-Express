@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-screen">
+        
+        <div id="tela-boas-vindas" class="sub-interface centralizada-boas-vindas">
+            <div class="menu-inicial-card">
+                <div class="titulo-boas-vindas">🧁 Purple Express</div>
+                <p class="subtitulo-boas-vindas">Escolha por onde você deseja começar a sua jornada doce:</p>
+                
+                <div class="botoes-boas-vindas-grupo">
+                    <button onclick="entrarInicialmente('confeitaria')" class="btn-menu-inicial-grande cozinha-btn">
+                        <span>🍳 Módulo Confeitaria</span>
+                        <small>Gerencie a mesa de montagem e monte os pedidos</small>
+                    </button>
+                    <button onclick="entrarInicialmente('cliente')" class="btn-menu-inicial-grande cliente-btn">
+                        <span>📱 Módulo do Cliente</span>
+                        <small>Simule um app de delivery e monte seu próprio combo</small>
+                    </button>
+                </div>
+                <div class="rodape-boas-vindas">Inspirado nos clássicos visuais de Purple Place</div>
+            </div>
+        </div>
+
+        <div id="modulo-confeitaria" class="sub-interface escondido">
+            <div class="coluna-pedidos">
+                <div class="area-pedido-ativo">
+                    <div class="topo-alternador">
+                        <h3>Pedido Ativo</h3>
+                        <button onclick="alternarInterface('cliente')" class="btn-troca-tela">📱 Ir para Cliente</button>
+                    </div>
+                    <div id="bilhete-pedido" class="bilhete-pedido"></div>
+                    <button onclick="verificarPedido()" class="btn-entregar">Entregar Pedido</button>
+                </div>
+
+                <div class="area-fila-espera">
+                    <h3>Fila de Espera (NPCs)</h3>
+                    <div id="fila-pedidos" class="fila-container"></div>
+                </div>
+            </div>
+
+            <div class="coluna-central">
+                <div class="placar">
+                    Pontuação: <span id="pontos-player">0</span>
+                </div>
+                <h2>Mesa de Montagem</h2>
+                
+                <div class="area-palco-bolo">
+                    <div id="slot-sobremesa-esquerda" class="slot-sobremesa"></div>
+                    <div id="pilha-doces-esquerda" class="pilha-doces"></div>
+                    <div id="tabuleiro-bolo" class="tabuleiro-bolo"></div>
+                    <div id="pilha-doces-direita" class="pilha-doces"></div>
+                    <div id="slot-sobremesa-direita" class="slot-sobremesa"></div>
+                </div>
+            </div>
+
+            <div class="coluna-botoes">
+                <h3>Painel de Criação</h3>
+                
+                <div class="paineis-ingredientes">
+                    <div class="grupo-botoes">
+                        <h4>Massas</h4>
+                        <button onclick="adicionarCamada('massa', 'chocolate')">Massa Chocolate</button>
+                        <button onclick="adicionarCamada('massa', 'baunilha')">Massa Baunilha</button>
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <h4>Recheios</h4>
+                        <button onclick="adicionarCamada('recheio', 'morango')">Recheio Morango</button>
+                        <button onclick="adicionarCamada('recheio', 'coco')">Recheio Coco</button>
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <h4>Coberturas</h4>
+                        <button onclick="adicionarCamada('cobertura', 'chocolate-glaze')">Glaçagem Chocolate</button>
+                        <button onclick="adicionarCamada('cobertura', 'chantilly')">Chantilly</button>
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <h4>Toppings</h4>
+                        <button onclick="adicionarCamada('topping', 'granulado')">Granulado</button>
+                        <button onclick="adicionarCamada('topping', 'cereja')">Cereja</button>
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <h4>Adicionais (Docinhos)</h4>
+                        <button onclick="adicionarDocinho('brigadeiro')" class="btn-adicional">Brigadeiro</button>
+                        <button onclick="adicionarDocinho('beijinho')" class="btn-adicional">Beijinho</button>
+                        <button onclick="adicionarDocinho('lolita')" class="btn-adicional">Lolita</button>
+                        <button onclick="adicionarDocinho('surpresa-uva')" class="btn-adicional">Surpresa de Uva</button>
+                        <button onclick="adicionarDocinho('bem-casado')" class="btn-adicional">Bem Casado</button>
+                        <button onclick="adicionarDocinho('bombom-morango')" class="btn-adicional">Bombom Morango</button>
+                        <button onclick="adicionarDocinho('copinho-choco')" class="btn-adicional">Copinho Choco</button>
+                        <button onclick="adicionarDocinho('macaron')" class="btn-adicional">Macaron</button>
+                    </div>
+
+                    <div class="grupo-botoes sobremesas-painel">
+                        <h4>Sobremesas Geladas</h4>
+                        <div class="seletores-sobremesa">
+                            <label>Tipo:</label>
+                            <select id="select-tipo-sobremesa">
+                                <option value="milkshake">Milkshake</option>
+                                <option value="sorvete">Sorvete</option>
+                                <option value="casquinha">Casquinha</option>
+                            </select>
+                            
+                            <label>Sabor:</label>
+                            <select id="select-sabor-sobremesa">
+                                <option value="baunilha">Baunilha</option>
+                                <option value="morango">Morango</option>
+                                <option value="chocolate">Chocolate</option>
+                            </select>
+                        </div>
+                        <button onclick="prepararSobremesa()" class="btn-sobremesa-add">+ Enviar p/ Balcão</button>
+                    </div>
+                </div>
+
+                <div class="acoes">
+                    <button onclick="desfazerUltimaAcao()" class="btn-desfazer">↩ Desfazer</button>
+                    <button onclick="limparBolo()" class="btn-limpar">Jogar no Lixo</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modulo-cliente" class="sub-interface escondido">
+            <div class="barra-topo-delivery">
+                <div class="logo-delivery">🧁 Purple Express</div>
+                <button onclick="alternarInterface('confeitaria')" class="btn-troca-tela">🍳 Ir à Confeitaria</button>
+            </div>
+
+            <div class="corpo-delivery">
+                <div class="catalogo-produtos">
+                    <h3>Cardápio Purple Place</h3>
+                    
+                    <div class="categoria-delivery">
+                        <h4>1. Escolha a Base do Bolo</h4>
+                        <div class="grid-produtos">
+                            <div class="card-produto" onclick="selecionarBaseCliente('chocolate')">
+                                <div class="placeholder-img bolo-choc-img">🎂</div>
+                                <h5>Bolo de Chocolate</h5>
+                                <p>Camadas fofas de chocolate gourmet.</p>
+                            </div>
+                            <div class="card-produto" onclick="selecionarBaseCliente('baunilha')">
+                                <div class="placeholder-img bolo-baun-img">🎂</div>
+                                <h5>Bolo de Baunilha</h5>
+                                <p>Sabor clássico e amanteigado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="categoria-delivery">
+                        <h4>2. Escolha os Adicionais (Até 4 doces)</h4>
+                        <div class="grid-produtos-pequeno">
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('brigadeiro')">➕ Brigadeiro</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('beijinho')">➕ Beijinho</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('lolita')">➕ Lolita</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('surpresa-uva')">➕ Uva</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('bem-casado')">➕ Casado</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('bombom-morango')">➕ Bombom</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('copinho-choco')">➕ Copinho</div>
+                            <div class="card-produto-item" onclick="adicionarDoceCliente('macaron')">➕ Macaron</div>
+                        </div>
+                    </div>
+
+                    <div class="categoria-delivery">
+                        <h4>3. Escolha uma Sobremesa Gelada (Opcional)</h4>
+                        <div class="grid-produtos">
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('milkshake', 'baunilha')">
+                                <div class="placeholder-img gelado-img yellow">🥤</div>
+                                <h5>Milkshake Baunilha</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('milkshake', 'chocolate')">
+                                <div class="placeholder-img gelado-img chocolate-base">🥤</div>
+                                <h5>Milkshake Chocolate</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('milkshake', 'morango')">
+                                <div class="placeholder-img gelado-img pink">🥤</div>
+                                <h5>Milkshake Morango</h5>
+                            </div>
+
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('sorvete', 'baunilha')">
+                                <div class="placeholder-img gelado-img yellow">🍧</div>
+                                <h5>Sorvete Baunilha</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('sorvete', 'chocolate')">
+                                <div class="placeholder-img gelado-img chocolate-base">🍧</div>
+                                <h5>Sorvete Chocolate</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('sorvete', 'morango')">
+                                <div class="placeholder-img gelado-img pink">🍧</div>
+                                <h5>Sorvete Morango</h5>
+                            </div>
+
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('casquinha', 'baunilha')">
+                                <div class="placeholder-img gelado-img yellow">🍦</div>
+                                <h5>Casquinha Baunilha</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('casquinha', 'chocolate')">
+                                <div class="placeholder-img gelado-img chocolate-base">🍦</div>
+                                <h5>Casquinha Chocolate</h5>
+                            </div>
+                            <div class="card-produto" onclick="selecionarSobremesaCliente('casquinha', 'morango')">
+                                <div class="placeholder-img gelado-img pink">🍦</div>
+                                <h5>Casquinha Morango</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carrinho-delivery">
+                    <h3>🛒 Seu Carrinho</h3>
+                    <div id="carrinho-conteudo" class="carrinho-lista">
+                        <p class="carrinho-vazio">Monte sua combinação ao lado para começar!</p>
+                    </div>
+                    <div class="carrinho-botoes">
+                        <button onclick="limparCarrinhoCliente()" class="btn-limpar">Limpar Tudo</button>
+                        <button onclick="finalizarPedidoCliente()" class="btn-entregar" style="margin-top:0;">🚀 Enviar Pedido para Loja</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

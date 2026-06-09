@@ -1,5 +1,9 @@
-Descrição do Projeto
-O projeto consiste na criação de um pôster de campanha para um RPG de Dark Fantasy, focado em uma narrativa densa, misteriosa e imersiva. A identidade visual combina o peso de um mundo de fantasia sombria com uma estética forte e simétrica, destacando elementos icônicos como armas perfeitamente alinhadas voltadas para o topo e figuras centrais expressivas. O design é estruturado de forma vertical e minimalista, priorizando o contraste e o mistério para evocar a tensão constante e o perigo iminente da campanha.
+📋 Descrição do Projeto:
 
-Relevância do Projeto
-Estabelecer a identidade e o tom da campanha: O pôster serve como o pilar visual do projeto. Ele sintetiza a atmosfera sombria, dita o ritmo da narrativa antes mesmo do início e engaja o público ao traduzir conceitos complexos de dark fantasy em uma imagem impactante e memorável.
+O projeto consiste em um aplicativo simulador de delivery e cozinha, totalmente inspirado no clássico minijogo de bolos do Purble Place. Nele, o usuário assume o papel de um confeiteiro que precisa gerenciar uma doceria: receber os pedidos dos clientes via "delivery", ir para a cozinha e montar os doces combinando as massas, recheios, coberturas e decorações exatas que foram solicitadas. Tudo isso contra o relógio, unindo a nostalgia dos anos 2000 com a dinâmica moderna dos apps de entrega.
+
+🎯 Relevância do Projeto:
+
+Este projeto é relevante porque combina o poder da nostalgia afetiva com as mecânicas modernas de gamificação.
+
+Ao resgatar a estética de um clássico da infância de muitos e transformá-lo em um simulador de gestão atual (delivery), criamos uma experiência altamente engajadora, divertida e com grande potencial de viralização no cenário de jogos casuais e mobile.
